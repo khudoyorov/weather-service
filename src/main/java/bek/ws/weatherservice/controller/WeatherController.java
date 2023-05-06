@@ -31,7 +31,7 @@ public class WeatherController {
     public Mono<WeatherDto> updateCityWeather(@RequestBody WeatherDto weatherDto){
         return weatherService.updateWeather(weatherDto);
     }
-    @PreAuthorize("hasRole('admin')")
+    @PreAuthorize("hasAuthority('admin')")
     @PostMapping("add-city")
     public Mono<WeatherDto> addCity(@RequestBody WeatherDto weatherDto){
         return weatherService.addCity(weatherDto);

@@ -30,7 +30,7 @@ public class UserController {
         return userService.editUser(userDto);
     }
 
-    @PreAuthorize(value = "hasAuthority('admin')")
+    @PreAuthorize("hasAuthority('admin')")
     @GetMapping("get-all")
     public Flux<UserDto> getAllUsers(){
         return userService.getAllUsers();

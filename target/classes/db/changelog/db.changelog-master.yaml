@@ -114,26 +114,3 @@ databaseChangeLog:
                   type: boolean
                   constraints:
                     nullable: false
-
-#  - changeSet:
-#      id: subscription_unique
-#  - changeSet:
-#      id: triggers
-#      author: java_machine
-#      dbms: '!h2'
-#      changes:
-#        - sqlFile:
-#            encoding: utf-8
-#            splitStatements: false
-#            path: db/changelog/triggers/user_role_trigger.sql
-#            stripComments: true
-#  - changeSet:
-#      id: mock_info
-#      author: java_machine
-#      dbms: 'h2'
-#      changes:
-#        - sqlFile:
-#            encoding: utf-8
-#            splitStatements: false
-#            path: db/changelog/mock/insert_mock_users.sql
-#            stripComments: true

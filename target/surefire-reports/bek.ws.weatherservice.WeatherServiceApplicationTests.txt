@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: bek.ws.weatherservice.WeatherServiceApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 12.909 s - in bek.ws.weatherservice.WeatherServiceApplicationTests
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 12.23 s - in bek.ws.weatherservice.WeatherServiceApplicationTests
