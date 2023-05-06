@@ -1,0 +1,139 @@
+databaseChangeLog:
+  - changeSet:
+      id: creat-tables
+      author: java-machine
+
+      changes:
+        - createTable:
+            schemaName: public
+            tableName: users
+
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  startWith: 1
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(100)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: phone_number
+                  type: varchar(15)
+                  constraints:
+                    nullable: false
+                    unique: true
+              - column:
+                  name: username
+                  type: varchar(100)
+                  constraints:
+                    nullable: false
+                    unique: true
+              - column:
+                  name: password
+                  type: varchar(200)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: role
+                  type: varchar(5)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: created_at
+                  type: timestamp
+                  defaultValueComputed: CURRENT_TIMESTAMP
+                  constraints:
+                    nullable: false
+        - createTable:
+            schemaName: public
+            tableName: subscriptions
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  startWith: 1
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: user_id
+                  type: int
+                  constraints:
+                    nullable: false
+                    unique: true
+                    uniqueConstraintName: subscriptions_unique
+              - column:
+                  name: weather_id
+                  type: int
+                  constraints:
+                    nullable: false
+                    unique: true
+                    uniqueConstraintName: subscriptions_unique
+        - createTable:
+            schemaName: public
+            tableName: weathers
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  startWith: 1
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: city
+                  type: varchar(100)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: temperature
+                  type: float
+                  constraints:
+                    nullable: false
+              - column:
+                  name: description
+                  type: varchar(200)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: date
+                  type: timestamp
+                  defaultValueComputed: CURRENT_TIMESTAMP
+                  constraints:
+                    nullable: false
+              - column:
+                  name: is_visible
+                  type: boolean
+                  constraints:
+                    nullable: false
+
+#  - changeSet:
+#      id: subscription_unique
+#  - changeSet:
+#      id: triggers
+#      author: java_machine
+#      dbms: '!h2'
+#      changes:
+#        - sqlFile:
+#            encoding: utf-8
+#            splitStatements: false
+#            path: db/changelog/triggers/user_role_trigger.sql
+#            stripComments: true
+#  - changeSet:
+#      id: mock_info
+#      author: java_machine
+#      dbms: 'h2'
+#      changes:
+#        - sqlFile:
+#            encoding: utf-8
+#            splitStatements: false
+#            path: db/changelog/mock/insert_mock_users.sql
+#            stripComments: true
